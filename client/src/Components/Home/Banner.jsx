@@ -3,6 +3,8 @@ import { Autoplay } from 'swiper/modules'
 import { Swiper ,SwiperSlide} from 'swiper/react'
 import { Movies } from '../../Data/MovieData'
 import FlexMovieItems from '../FlexMovieItems'
+import { Link } from 'react-router-dom'
+import { FaHeart } from 'react-icons/fa'
 
 function Banner() {
   return (
@@ -33,12 +35,19 @@ function Banner() {
                 <div className='flex gap-5 items-center text-dryGray'>
                   <FlexMovieItems movie={movie}/>
                 </div>
+                <div className='flex gap-5 items-center'>
+                  <Link to={`/movie/${movie.name}`} className='bg-subMain hover:text-main transition text-white px-8 py-3 rounded font-medium sm:text-sm text-xs '>
+                  Watch
+                  </Link>
+                  <button className='bg-white hover:text-subMain transition text-white px-4 py-3 rounded text-sm bg-opacity-30 '>
+                    <FaHeart/>
+                  </button>
+                </div>
                </div>
             </SwiperSlide>
           ))
         }
       </Swiper>
-      kannan
     </div>
   )
 }
